@@ -4,6 +4,7 @@
 :: ECHO Hello World
 
 :: Start up an alpine:latest docker
+docker create --name DevopsTest alpine:latest >NUL
 
 :: give it python
 
@@ -16,5 +17,7 @@
 :: Print only spaceship name, and pilot list
 
 :: clean up docker
+:: PAUSE
+docker container rm DevopsTest >NUL
 
 PAUSE
