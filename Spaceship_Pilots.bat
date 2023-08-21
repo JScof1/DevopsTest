@@ -8,18 +8,28 @@ docker create -i --name DevopsTest alpine:latest >NUL
 docker start DevopsTest
 
 :: give it python
-docker exec DevopsTest apk update
-docker exec DevopsTest apk add python3 py3-pip
+:: docker exec DevopsTest apk update
+:: docker exec DevopsTest sh -c "rm -f /etc/apk/repositories"
+:: docker exec DevopsTest sh -c "echo https://dl-cdn.alpinelinux.org/alpine/v3.15/main/ >> /etc/apk/repositories"
+:: docker exec DevopsTest sh -c "echo https://dl-cdn.alpinelinux.org/alpine/v3.15/community/ >> /etc/apk/repositories"
+:: PAUSE
+docker exec DevopsTest apk add python3
+:: py3-pip
 
 :: give it swapi-python
-docker exec DevopsTest apk add gcc libc-dev python3-dev 
-docker exec DevopsTest pip install swapi
+:: docker exec DevopsTest apk add gcc libc-dev python3-dev
+:: docker exec DevopsTest pip install swapi
 
 :: Get all spaceships
-
 :: Check the spaceships for missing pilots, remove those
-
 :: Print only spaceship name, and pilot list
+:: all taken care of in Spaceships_Pilots.py
+
+:: inject Spacehships_Pilots.py to the docker
+
+@ECHO OFF
+
+:: run the python script
 
 :: clean up docker
 PAUSE
