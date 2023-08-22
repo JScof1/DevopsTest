@@ -26,10 +26,12 @@ docker exec DevopsTest apk add python3
 :: all taken care of in Spaceships_Pilots.py
 
 :: inject Spacehships_Pilots.py to the docker
+docker cp Spaceship_Pilots.py DevopsTest:Spaceship_Pilots.py
 
 @ECHO OFF
 
 :: run the python script
+docker exec DevopsTest python Spaceship_Pilots.py
 
 :: clean up docker
 PAUSE

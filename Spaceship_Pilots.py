@@ -1,7 +1,7 @@
 import urllib
 from urllib.request import urlopen
 import json
-uridump = urlopen("htpps://swapi.dev/api/starships/")
+urldump = urlopen("https://swapi.dev/api/starships/")
 urlread = urldump.read()
 jsondump = json.loads(urlread)
 starships = jsondump["results"]
@@ -15,7 +15,7 @@ for ship in starships:
       pilotjson = json.loads(pilotread)
       if firstpilot:
         firstpilot = False        
-        else:
-          output = output + ", "
+      else:
+        output = output + ", "
       output = output + pilotjson["name"]
     print(output)
